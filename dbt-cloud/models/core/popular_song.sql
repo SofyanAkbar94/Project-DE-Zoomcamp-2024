@@ -1,60 +1,37 @@
-{{
-  config(
-    materialized = 'table',
-    )
-}}
-with albums as (
-  select
-    id,
-    album_name,
-    popularity
-  from {{ ref("stg_album") }} 
-),
+{{ config(materialized='table') }}
 
-artists as (
-  select 
-    id,
+with tracks as (
+  select
     artists_name,
-    popularity
-   from {{ ref("stg_artist") }}
-    where genre is not null
-),
-
-tracks as (
-  select
-    id,
+    album_name,
     track_name,
+    popularity,
     duration_minute,
-    popularity
-  from {{ ref('stg_track') }}
-),
-
-df as (
-  select 
-    ar.genre
-   ,ar.id artist_id
-   ,al.id album_id
-   ,tr.duration
-   ,m.id merch_id
-  from artists ar
-  left join albums al
-         on ar.id = al.artist_id
-  left join tracks tr
-         on al.id = tr.album_id
-  left join merch m
-         on al.id = m.album_id 
+    genre,
+    -- Calculate rank based on popularity within each track_id partition
+    row_number(113999) over (partition by track_name order by popularity desc) as rank
+  from {{ ref('stg_spotify') }}  -- Reference the staging model
 ),
 
 result as (
   select
-    count(distinct artists_name) total_artists
-    count(distinct album_name) total_albums
-    count(distinct track_name) total_albums
-    count(distinct genre) total_genre
-    max popularity order by desc
-    max duration_minute order by asc
-  from df
-  group by 10
+    count(distinct artists_name) as count_artist_name,
+    count(distinct album_name) as count_album_name,
+    count(distinct track_name) as count_track_name,
+    count(distinct genre) as count_genre,
+    max(duration_minute) as longest_track_duration,
+    -- Use FIRST_VALUE to get the most popular track within each partition
+    first_value(track_name) over (order by popularity desc) as most_popular_track_name,
+    max(popularity) as most_popular_score
+  from tracks
 )
 
-select * from result
+select 
+  count_artist_name,
+  count_album_name,
+  count_track_name,
+  count_genre,
+  longest_track_duration,
+  most_popular_track_name,
+  most_popular_score
+from result;
