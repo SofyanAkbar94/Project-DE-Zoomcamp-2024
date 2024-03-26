@@ -1,0 +1,46 @@
+version: 2
+
+sources:
+  - name: staging
+    database: project-de-zoomcamp-418214
+    schema: project_spotify_dataset
+    tables:
+      - name: album
+      - name: artist
+      - name: track
+
+models:
+  - name: stg_album
+    columns:
+      - name: id
+        description: "primary key"
+      - name: album_name
+        description: "Name of the album"
+      - name: popularity
+        description: "Popularity of the album"
+      - name: genre
+        description: "Genre of the album"
+
+  - name: stg_artist
+    columns:
+      - name: id
+        description: "primary key"
+      - name: artists_name
+        description: "Name of the artist"
+      - name: duration_minute
+        description: "Duration of the artist's track in minutes"
+      - name: popularity
+        description: "Popularity of the artist"
+
+  - name: stg_track
+    columns:
+      - name: id
+        description: "Unique identifier for the track"
+      - name: track_name
+        description: "Name of the track"
+      - name: duration_minute
+        description: "Duration of the track in minutes"
+      - name: popularity
+        description: "Popularity of the track"
+      - name: genre
+        description: "Genre of the track"
