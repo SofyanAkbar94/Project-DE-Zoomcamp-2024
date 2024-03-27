@@ -1,16 +1,29 @@
 version: 2
 
 models:
-    - name: popular song
-      description: Bandcamp music genres statistic
-      columns:
-          - name: longest_song
-            description: song with longest duration
-          - name: genre 
-            description: genre name
-          - name: total_artists 
-            description: Number of artist
-          - name: total_albums 
-            description: Number of albums
-          - name: popularity
-            description: index popularity
+    - name: total_album_artist_song_genre
+      description: total statistic of album, artist, song, genre, duration
+
+models:
+    - name: most_shortest_duration_song_artist_genre
+      description: most short duration song, artist, and genre
+
+models:
+    - name: most_popular_song_artist
+      description: most popular song and artist
+
+models:
+    - name: most_popular_genre
+      description: most popular genre
+
+models:
+    - name: most_longest_duration_song_artist_genre
+      description: most longest duration song, artist, and genre
+
+models:
+    - name: less_popular_song_artist
+      description: less popular song and artist
+
+models:
+    - name: less_popular_genre
+      description: less popular genre
