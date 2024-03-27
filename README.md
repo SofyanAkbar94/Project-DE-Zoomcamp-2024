@@ -58,7 +58,9 @@ Here the DAG from mage :
 
 ![image](https://github.com/SofyanAkbar94/Project-DE-Zoomcamp-2024/assets/136363515/c91c33dd-ca6b-4d11-a085-a3aadaec7bc9)
 
-Here the dbt lineage graph (will be update)
+Here the dbt lineage graph :
+
+![image](https://github.com/SofyanAkbar94/Project-DE-Zoomcamp-2024/assets/136363515/c7cb963a-7f08-4a84-8c6b-08344b859595)
 
 Due to this dataset doesn't have datetime or timestamp this data cannot be partitioned.
 
@@ -89,43 +91,35 @@ Clustered by genre column to improve performance.
 
 ## Reproduce (will be update)
 
-Prequist: Ensure you have Google cloud, DBT, Prefect Cloud account To run the project, use the following step:\
+Create infrastructure using Terraform
 
-    On GCP create a service account with with GCE, GCS and BiqQuery admin previllage
-    Create a VM with machine type n1-standard-1 in europe-west1 region
-    Setup the VM link:
-        Install Anaconda using the following steps:
-            Download anaconda using wget https://repo.anaconda.com/archive/Anaconda3-2023.03-1-Linux-x86_64.sh or the latest version from this link
-            bash Anaconda3-2023.03-1-Linux-x86_64.sh
-        Install Docker and create a user by using the following steps:
-            sudo apt-get update
-            sudo apt-get install docker.io
-            sudo groupadd docker
-            sudo gpasswd -a $USER docker
-            sudo docker service restart
-    Restart VM
-    Clone this repo using: git clone https://github.com/uchiharon/DataTalksClub_de-zoomcamp_CapStone_Project.git
-    Install terraform following the instruction in this link
-    Navigate to the 2_terraform folder, then from your CLI run:
-        terraform init
-        terraform plan
-        terraform apply
-    On your prefect cloud, create the following buckets:
-        Docker Container
-            name: eia-etl-container
-            image: emmanuelikpesu/eia_etl:v01
-            imagepullpolicy: ALWAYS
-        GCP Credentials
-            name: zoom-gcp-creds INPUT GCP Credentials
-        GCS Bucket -name: zoom-gcs
-        JSON -name: excel-sheet-schema
-            NOTE: Copy the information from the excel file setting into it
-        String -name: report-year -input: 2014 (for start)
-    Navigate to the 4_deployment folder, then run python docker_deployment.py to deploy the prefect workflow
-    Run prefect agent start --work-queue "default" on your VM to execute a prefect agent
-    From prefect cloud, run the workflow
-    To create the external table of the parquet files in Bigquery, copy the sql code the 6_bigquery folder, paste it on the console and run.
-    Finally: To run the dbt model, copy all files from the 5_dbt folder and run the deployment.
+To manage infrastructure in this project uses tool Terraform To install terraform read documentation
+Config terraform
+
+    Enter terraform folder
+    Open file version.tf
+    Change variables if nessesary
+
+Check execute plan
+
+    Open terminal
+    Enter to terraform folder. If you in project root folder run coomand cd terraform
+    Run command terraform plan
+        Fill your billing id
+        Fill your project name
+        Type "yes"
+        Press enter
+    Check if everything is correct, fix errors if occurs and check everything again
+
+Apply infrastructure
+
+    Run command terraform apply
+        Fill your billing id
+        Fill your project name
+        Type "yes"
+        Press enter
+    Check if everything is correct
+    Go to GCP console
 
 ## Acknowledgments
 
