@@ -5,24 +5,16 @@ models:
       description: total statistic of album, artist, song, genre, duration
 
 models:
-    - name: most_shortest_duration_song_artist_genre
-      description: most short duration song, artist, and genre
-
-models:
-    - name: most_popular_song_artist
-      description: most popular song and artist
-
-models:
-    - name: most_popular_genre
-      description: most popular genre
-
-models:
     - name: most_longest_duration_song_artist_genre
       description: most longest duration song, artist, and genre
 
 models:
-    - name: less_popular_song_artist
-      description: less popular song and artist
+    - name: most_shortest_duration_song_artist_genre
+      description: most short duration song, artist, and genre
+
+models:
+    - name: most_popular_genre
+      description: most popular genre
 
 models:
     - name: less_popular_genre
