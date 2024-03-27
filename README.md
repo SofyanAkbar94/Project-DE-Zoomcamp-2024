@@ -51,6 +51,19 @@
 - dbt - as data transformation from data warehouse;
 - Google Looker studio - for visualizations data.
 
+## Dataset
+Dataset for this project source from : https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset/blob/c4609440b24ac4075899f6e60b33775acbe00827/dataset.csv 
+
+Here the DAG from mage :
+
+![image](https://github.com/SofyanAkbar94/Project-DE-Zoomcamp-2024/assets/136363515/c91c33dd-ca6b-4d11-a085-a3aadaec7bc9)
+
+Here the dbt lineage graph (will be update)
+
+Due to this dataset doesn't have datetime or timestamp this data cannot be partitioned.
+
+Clustered by genre column to improve performance.
+
 ## DATA ARCHITECTURE & WORKFLOW
 
 ![Work Flow](https://github.com/SofyanAkbar94/Project-DE-Zoomcamp-2024/assets/136363515/772944b3-e0f3-468f-87a5-8f24260d4a9e)
@@ -74,7 +87,7 @@
 
 ![image](https://github.com/SofyanAkbar94/Project-DE-Zoomcamp-2024/assets/136363515/e982d182-d4a7-4bde-baa3-bd32b2cde8a8)
 
-## Reproduce
+## Reproduce (will be update)
 
 Prequist: Ensure you have Google cloud, DBT, Prefect Cloud account To run the project, use the following step:\
 
