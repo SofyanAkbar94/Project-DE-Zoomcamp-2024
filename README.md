@@ -85,41 +85,55 @@ Clustered by genre column to improve performance.
 **5. Data Visualization using Looker Studio:**
      Connect Looker to the data warehouse or BigQuery where the transformed datasets reside. Create dashboards, reports, and visualizations using Looker's drag-and-drop interface to giving insights effectively.
 
-## INSIGHTS  DASHBOARD
+## INSIGHTS DASHBOARD
 
 ![image](https://github.com/SofyanAkbar94/Project-DE-Zoomcamp-2024/assets/136363515/e982d182-d4a7-4bde-baa3-bd32b2cde8a8)
 
-## Reproduce (will be update)
+## Reproduce
 
-Create infrastructure using Terraform
+## 1. Installation Terraform
 
-To manage infrastructure in this project uses tool Terraform To install terraform read documentation
-Config terraform
+I used Windows OS so for installation you can read the documentation in here :
+> https://phoenixnap.com/kb/how-to-install-terraform
 
-    Enter terraform folder
-    Open file version.tf
-    Change variables if nessesary
+If you're successfully installed you can check with 
+`terraform --version`
 
-Check execute plan
+![image](https://github.com/SofyanAkbar94/Project-DE-Zoomcamp-2024/assets/136363515/43710fc5-4cf3-4639-8b92-c8f00e411d14)
 
-    Open terminal
-    Enter to terraform folder. If you in project root folder run coomand cd terraform
-    Run command terraform plan
-        Fill your billing id
-        Fill your project name
-        Type "yes"
-        Press enter
-    Check if everything is correct, fix errors if occurs and check everything again
+## 2. Installation Mage - Orchestration Tool using Terraform in GCP
 
-Apply infrastructure
+If you're confused with the installation Mage in GCP I recommend using official Mage documentation and downloading all files :
 
-    Run command terraform apply
-        Fill your billing id
-        Fill your project name
-        Type "yes"
-        Press enter
-    Check if everything is correct
-    Go to GCP console
+> https://github.com/mage-ai/mage-ai-terraform-templates/tree/master/gcp
+
+Save in your local folder
+Open terminal or visual studio code
+Enter to terraform folder
+
+Open `variables.tf` file, fill and setting as you wish
+
+![image](https://github.com/SofyanAkbar94/Project-DE-Zoomcamp-2024/assets/136363515/ecde3fc4-3c82-471a-8683-7abdbd5beb7d)
+
+Run `terraform init` The terraform init command initializes a working directory containing configuration files and installs plugins for required providers.
+
+![image](https://github.com/SofyanAkbar94/Project-DE-Zoomcamp-2024/assets/136363515/5b3adbc5-a331-4649-98e5-b4feba8fc1c9)
+
+Run `terraform plan` The terraform plan command creates an execution plan, which lets you preview the changes that Terraform plans to make to your infrastructure.
+
+![image](https://github.com/SofyanAkbar94/Project-DE-Zoomcamp-2024/assets/136363515/d65da367-bdbe-463f-bfec-459ea253d92e)
+
+Check if everything is correct, if there are error fix an error
+
+Run command `terraform apply` Type "yes" then press Enter. You can check into GCP
+
+![image](https://github.com/SofyanAkbar94/Project-DE-Zoomcamp-2024/assets/136363515/8f7e3783-341b-4797-9d11-4de427b451a8)
+
+## 3. Installation DBT Cloud :
+
+For further information setup DBT Cloud. Follow this tutorial from datatalksclub. Thanks for providing this tutorial.
+
+> https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/04-analytics-engineering/dbt_cloud_setup.md
 
 ## Acknowledgments
 
