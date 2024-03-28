@@ -89,6 +89,8 @@ Clustered by genre column to improve performance.
 
 ![image](https://github.com/SofyanAkbar94/Project-DE-Zoomcamp-2024/assets/136363515/e982d182-d4a7-4bde-baa3-bd32b2cde8a8)
 
+Click [here](https://lookerstudio.google.com/reporting/f562671f-beab-47db-b706-5e864ffa0726) to look a dashboard
+
 ## Reproduce
 
 ## 1. Installation Terraform
