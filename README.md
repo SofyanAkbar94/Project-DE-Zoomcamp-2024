@@ -51,7 +51,7 @@
 - dbt - as data transformation from data warehouse;
 - Google Looker studio - for visualizations data.
 
-## Dataset
+## DATASET
 Dataset for this project source from : https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset/blob/c4609440b24ac4075899f6e60b33775acbe00827/dataset.csv 
 
 Here the DAG from mage :
